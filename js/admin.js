@@ -103,7 +103,10 @@ function editFetch(id) {
         }
     })
         .then(res => res.json)
-        .then(info => getNews())
+        .then(info => {
+            getNews()
+            openNewsDiv()
+        })
 }
 
 
