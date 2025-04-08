@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="md:fixed top-0 bg-white right-0 left-0">
+        <div class="h-[32px] bg-[#051d39] max-md:hidden"></div>
+        <div class="md:hidden">
+            <div class="fixed top-0 left-0 right-0 bg-white flex p-[15px] justify-between">
+                <a href="./index.htm" class="grid place-items-center">
+                    <img src="img/logo.svg" alt="logo" />
+                </a>
+                <div class="text-[#464646] flex justify-between items-center gap-6">
+                    <i class="fa-solid fa-magnifying-glass cursor-pointer text-[22px]"></i>
+                    <div class="w-[48px] h-[26px] border-[2px] border-[#051d39] flex justify-center text-[12px] font-bold rounded-[44px] items-center cursor-pointer text-[#464646]">AZ ▼</div>
+                    <i onclick="openCloseMenu()" class="fa-solid fa-bars cursor-pointer text-[20px]"></i>
+                </div>
+            </div>
+            <div class="mt-14 text-[#051d39] h-[40px] px-[15px] overflow-x-scroll scrollbar-hide flex justify-between items-center gap-2 font-medium text-[14px]">
+                <a href="#" class="bg-[#f63147] anmt w-[82px!important] flex items-center gap-2 rounded-[30px] text-[12px] text-white p-[4px_12px] uppercase">
+                        <div class="flex gap-3 items-center w-[80px] font-bold">
+                            <img src="img/live.png" width="22" alt="live" />
+                            live
+                        </div>
+                </a>
+                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">İlham Əliyev</a>
+                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Böyük Qayıdış</a>
+                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Ermənilərin təxribatı</a>
+                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hava proqnozu</a>
+                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Neokolonializmlə mübarizə</a>
+            </div>
+        </div>
+        <div class="h-[32px] bg-[#051d39] md:hidden"></div>
+        <div id="hideMenuDiv" class="fixed overflow-y-auto md:hidden inset-0 bg-white p-[16px_15px_72px]">
+            <div class="mt-[20px] flex justify-between items-center">
+                <a href="./index.htm"><img width="120" src="img/logo.svg" alt="logo" /></a>
+                <div class="flex items-center gap-5">
+                    <div class="w-[36px] h-[24px] cursor-pointer border-[2px] border-[#051d39] flex items-center rounded-[44px]">
+                        <i class="fa-solid fa-moon ml-[6px]"></i>
+                    </div>
+                    <i onclick="openCloseMenu()" class="fa-solid fa-xmark text-[24px] text-[#464646] cursor-pointer"></i>
+                </div>
+            </div>
+            <div class="flex justify-center gap-4 my-[40px]">
+                <a href="#" class="w-[40px] h-[40px] flex items-center justify-center text-[20px] rounded-[50%] bg-[#f3f3f3]">
+                    <i class="fa-brands fa-facebook text-[#5197e4]"></i>
+                </a>
+                <a href="#" class="w-[40px] h-[40px] flex items-center justify-center text-[20px] rounded-[50%] bg-[#f3f3f3]">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#" class="w-[40px] h-[40px] flex items-center justify-center text-[20px] rounded-[50%] bg-[#f3f3f3]">
+                    <i class="fa-brands fa-telegram text-[#0088cc]"></i>
+                </a>
+                <a href="#" class="w-[40px] h-[40px] flex items-center justify-center text-[20px] rounded-[50%] bg-[#f3f3f3]">
+                    <i class="fa-brands fa-whatsapp text-[#25d366]"></i>
+                </a>
+                <a href="#" class="w-[40px] h-[40px] flex items-center justify-center text-[20px] rounded-[50%] bg-[#f3f3f3]">
+                    <i class="fa-brands fa-instagram bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text"></i>
+                </a>
+            </div>
+            <div id="sideMenu" class="flex justify-center flex-wrap gap-x-[14px] gap-y-[25px]"></div>
+            <div class="flex gap-2 flex-wrap justify-between items-center mt-12">
+                <a href="#" class="min-w-[94px] min-h-[80px] text-[13px] font-medium flex flex-col justify-center items-center text-[#2d2d2d] p-[5px] rounded-[16px] bg-[#f3f3f3]">
+                    <img src="img/circle-info.svg" alt="info" class="w-[22px] mb-2"/>
+                    <span>Haqqımızda</span>
+                </a>
+                <a href="#" class="min-w-[94px] min-h-[80px] text-[13px] font-medium flex flex-col justify-center items-center text-[#2d2d2d] p-[5px] rounded-[16px] bg-[#f3f3f3]">
+                    <i class="fa-solid fa-bullhorn text-[22px] mb-2"></i>
+                    <span>Reklam</span>
+                </a>
+                <a href="#" class="min-w-[94px] min-h-[80px] text-[13px] font-medium flex flex-col justify-center items-center text-[#2d2d2d] p-[5px] rounded-[16px] bg-[#f3f3f3]">
+                    <img src="img/phone.svg" alt="info" class="w-[22px] mb-2"/>
+                    <span>Əlaqə</span>
+                </a>
+            </div>
+            <div class="mt-8 flex gap-2 flex-wrap justify-between">
+                <a href="#" class="min-w-[148px] bg-[#051d39] flex gap-2 items-center p-[8px_18px] rounded-[8px] text-white">
+                    <img src="img/google_play.png" width="23" alt="google_play">
+                    <div>
+                        <p class="text-[10px] font-medium uppercase">get in on</p>
+                        <p class="text-[15px] font-bold capitalize">google play</p>
+                    </div>
+                </a>
+                <a href="#" class="min-w-[148px] bg-[#051d39] flex gap-2 items-center p-[8px_18px] rounded-[8px] text-white">
+                    <i class="fa-brands fa-apple text-[23px]"></i>
+                    <div>
+                        <p class="text-[10px] font-medium uppercase">get in on</p>
+                        <p class="text-[15px] font-bold capitalize">app store</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-[1356px] pl-[56px] max-md:hidden laptop:px-[56px] m-auto">
+            <div class="container m-auto px-[15px]">
+                <div class="h-[66px]">
+                    <div class="flex pt-[15px] justify-between">
+                        <a href="./index.htm" class="grid place-items-center">
+                            <img src="img/logo.svg" alt="logo" />
+                        </a>
+                        <div class="text-[#051d39] w-[calc(100%-368px)] h-[40px] px-[15px] overflow-x-scroll scrollbar-hide flex justify-between items-center gap-2 font-medium text-[14px]">
+                            <a href="#" class="bg-[#f63147] anmt w-[82px!important] flex items-center gap-2 rounded-[30px] text-[12px] text-white p-[4px_12px] uppercase">
+                                    <div class="flex gap-3 items-center w-[80px] font-bold">
+                                        <img src="img/live.png" width="22" alt="live" />
+                                        live
+                                    </div>
+                            </a>
+                            <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">İlham Əliyev</a>
+                            <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Böyük Qayıdış</a>
+                            <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Ermənilərin təxribatı</a>
+                            <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hava proqnozu</a>
+                            <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Neokolonializmlə mübarizə</a>
+                        </div>
+                        <div class="text-[#464646] flex justify-between items-center gap-6">
+                            <i class="fa-solid fa-magnifying-glass cursor-pointer text-[22px]"></i>
+                            <i onclick="" class="fa-solid fa-bars cursor-pointer text-[20px]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
+        <aside class="w-[56px] fixed top-8 bottom-0 hidden md:flex justify-between flex-col left-0 bg-[#fafaf9e0] p-[20px_10px_22px]">
+            <div>
+                <div class="w-[36px] h-[24px] bg-[#051d39] border-[2px] border-[#051d39] flex justify-center text-[12px] font-bold rounded-[44px] cursor-pointer items-center text-white">AZ</div>
+                <div class="w-[36px] h-[24px] border-[2px] border-[#051d39] flex justify-center text-[12px] font-bold rounded-[44px] items-center my-6 cursor-pointer text-[#464646]">RU</div>
+                <div class="w-[36px] h-[24px] border-[2px] border-[#051d39] flex justify-center text-[12px] font-bold rounded-[44px] items-center cursor-pointer text-[#464646]">TR</div>
+                <div class="w-[36px] grid place-items-center mb-[45px] mt-7">
+                    <img src="img/circle-info.svg" alt="info" class="w-[22px]"/>
+                </div>
+                <div class="w-[36px] h-[24px] cursor-pointer border-[2px] border-[#051d39] flex items-center rounded-[44px]">
+                    <i class="fa-solid fa-moon ml-[6px]"></i>
+                </div>
+            </div>
+            <div>
+                <div class="w-[36px] h-[32px] text-[18px] cursor-pointer grid place-items-center mb-2">
+                    <i class="fa-brands fa-facebook text-[#5197e4]"></i>
+                </div>
+                <div class="w-[36px] h-[32px] text-[18px] cursor-pointer grid place-items-center mb-2">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+                <div class="w-[36px] h-[32px] text-[18px] cursor-pointer grid place-items-center mb-2">
+                    <i class="fa-brands fa-telegram text-[#0088cc]"></i>
+                </div>
+                <div class="w-[36px] h-[32px] text-[18px] cursor-pointer grid place-items-center mb-2">
+                    <i class="fa-brands fa-whatsapp text-[#25d366]"></i>
+                </div>
+                <div class="w-[36px] h-[32px] text-[18px] cursor-pointer grid place-items-center mb-2">
+                    <i class="fa-brands fa-instagram bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text"></i>
+                </div>
+                <div class="w-[36px] h-[32px] text-[18px] cursor-pointer grid place-items-center mb-2">
+                    <i class="fa-brands fa-apple text-[#9b9b9b]"></i>
+                </div>
+                <div class="w-[36px] h-[32px] cursor-pointer grid place-items-center">
+                    <img src="img/google_play.png" class="w-[18px]" alt="google_play">
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

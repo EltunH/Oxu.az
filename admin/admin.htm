@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="shortcut icon" href="admin.ico" type="image/x-icon"> 
+</head>
+
+<body>
+    <div class="max-w-[1200px] m-auto">
+        <div class="container m-auto py-6">
+            <button onclick="openNewsDiv(true)"
+                class="w-[190px] block m-auto text-white cursor-pointer bg-[#20b94c] rounded-[7px] py-2">Xəbər
+                yerləşdir</button>
+            <h1 class="text-[32px] text-center font-bold my-10 ">Xəbərlər</h1>
+            <table class="w-full">
+                <thead class="font-bold h-[50px] bg-[#d2d6db]">
+                    <tr>
+                        <td class="border px-3 py-2">Şəkil</td>
+                        <td class="border px-3 py-2">Başlıq</td>
+                        <td class="border px-3 py-2">Mətn</td>
+                        <td class="border px-3 py-2">Tarix</td>
+                        <td class="border px-3 py-2">Baxış sayı</td>
+                        <td class="border px-3 py-2">Məşhurluğu</td>
+                        <td class="border px-3 py-2">Düzəlt</td>
+                        <td class="border px-3 py-2">Sil</td>
+                    </tr>
+                </thead>
+                <tbody id="tbl">
+
+                </tbody>
+            </table>
+            <div id="newsDiv" onclick="openNewsDiv()" class="fixed grid backdrop-blur-sm inset-0 place-items-center">
+                <div onclick="event.stopPropagation()"
+                    class="border-[2px] border-[#1e6f37] bg-[#d2d6db] w-[600px] rounded px-2 py-3">
+                    <p id="changeText" class="text-[#1e6f37] text-[32px] font-bold mb-6 text-center">Xəbər yerləşdir</p>
+                    <label for="titleInp" class="text-[#1e6f37] font-bold">Başlıq əlavə et:</label>
+                    <input id="titleInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                        type="text" />
+
+                    <label for="textInp" class="text-[#1e6f37] font-bold">Mətn əlavə et:</label>
+                    <textarea id="textInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded h-[150px]"
+                        type="text"></textarea>
+
+                    <label for="imgInp" class="text-[#1e6f37] font-bold">Şəkil əlavə et:</label>
+                    <input id="imgInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                        type="text" />
+
+                    <label for="dateInp" class="text-[#1e6f37] font-bold">Tarix əlavə et:</label>
+                    <input id="dateInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                        type="date" />
+
+                    <label for="sayInp" class="text-[#1e6f37] font-bold">Baxış sayı:</label>
+                    <input id="sayInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                        type="number" />
+
+                    <label for="popInp" class="text-[#1e6f37] font-bold">Populyarlığı:</label>
+                    <input id="popInp" class="border border-gray-500 rounded" type="checkbox" />
+                    <button id="btnChange" onclick="addNews()"
+                        class="w-[190px] block m-auto mt-4 text-white cursor-pointer bg-[#20b94c] rounded-[7px] py-2">Yüklə</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

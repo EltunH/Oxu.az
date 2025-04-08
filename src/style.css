@@ -1,0 +1,21 @@
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.anmt{
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(246,49,71,.6)
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(246,49,71,0)
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(246,49,71,0)
+    }
+}
