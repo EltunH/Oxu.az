@@ -1,3 +1,5 @@
+checkVerify()
+
 const newsDiv = document.getElementById('newsDiv')
 const tbl = document.getElementById('tbl')
 const titleInp = document.getElementById('titleInp')
@@ -56,16 +58,16 @@ function showTable() {
 
     DATA.map((item, i) => {
         kod += `
-                <tr class=" h-[50px] bg-[#fafafc]">
-                    <td class="border px-3 py-2"><img width="50" height="50" src="${item.img}" class="cLover" alt="photo"/></td>
-                    <td class="border px-3 py-2">${item.title}</td>
-                    <td class="border px-3 py-2">${item.description}</td>
-                    <td class="border px-3 py-2 text-nowrap">${item.date}</td>
-                    <td class="border px-3 py-2">${item.view}</td>
-                    <td class="border px-3 py-2">${item.is_popular ? 'Populyardir' : 'Sadədir'}</td>
-                    <td onclick="editNews('${item.id}')" class="border px-3 py-2"><i class="fa-solid fa-edit text-green-600 cursor-pointer"></i></td>
-                    <td onclick="delNews('${item.id}', ${i})" class="border px-3 py-2"><i class="fa-solid fa-trash text-red-600 cursor-pointer"></i></td>
-                <tr/>`
+                    <tr class=" h-[50px] bg-[#fafafc]">
+                        <td class="border px-3 py-2"><img width="50" height="50" src="${item.img}" class="cLover" alt="photo"/></td>
+                        <td class="border px-3 py-2">${item.title}</td>
+                        <td class="border px-3 py-2">${item.description}</td>
+                        <td class="border px-3 py-2 text-nowrap">${item.date}</td>
+                        <td class="border px-3 py-2">${item.view}</td>
+                        <td class="border px-3 py-2">${item.is_popular ? 'Populyardir' : 'Sadədir'}</td>
+                        <td onclick="editNews('${item.id}')" class="border px-3 py-2"><i class="fa-solid fa-edit text-green-600 cursor-pointer"></i></td>
+                        <td onclick="delNews('${item.id}', ${i})" class="border px-3 py-2"><i class="fa-solid fa-trash text-red-600 cursor-pointer"></i></td>
+                    <tr/>`
     })
     tbl.innerHTML = kod
 }
@@ -108,7 +110,6 @@ function editFetch(id) {
             openNewsDiv()
         })
 }
-
 
 function clearInps() {
     titleInp.value = ''
