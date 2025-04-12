@@ -10,6 +10,7 @@ const sayInp = document.getElementById('sayInp')
 const popInp = document.getElementById('popInp')
 const btnChange = document.getElementById('btnChange')
 const changeText = document.getElementById('changeText')
+const categoryInp = document.getElementById('categoryInp')
 
 const DATA = []
 
@@ -20,6 +21,7 @@ function objNews() {
         img: imgInp.value,
         date: dateInp.value,
         view: sayInp.value,
+        category: categoryInp.value,
         is_popular: popInp.checked,
     }
     return newsObj
@@ -55,13 +57,13 @@ getNews()
 
 function showTable() {
     let kod = ''
-
     DATA.map((item, i) => {
         kod += `
                     <tr class=" h-[50px] bg-[#fafafc]">
-                        <td class="border px-3 py-2"><img width="50" height="50" src="${item.img}" class="cLover" alt="photo"/></td>
+                        <td class="border px-3 py-2"><img src="${item.img}" class="w-[50px] h-[50px] object-cover" alt="photo"/></td>
                         <td class="border px-3 py-2">${item.title}</td>
                         <td class="border px-3 py-2">${item.description}</td>
+                        <td class="border px-3 py-2">${item.category}</td>
                         <td class="border px-3 py-2 text-nowrap">${item.date}</td>
                         <td class="border px-3 py-2">${item.view}</td>
                         <td class="border px-3 py-2">${item.is_popular ? 'Populyardir' : 'Sadədir'}</td>
@@ -94,9 +96,11 @@ function editNews(id) {
     imgInp.value = editData.img
     dateInp.value = editData.date
     sayInp.value = editData.view
+    categoryInp.value = editData.category
 }
 
 function editFetch(id) {
+    if(validation()) return
     fetch(`https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz/${id}`, {
         method: "PUT",
         body: JSON.stringify(objNews(),),
@@ -116,6 +120,7 @@ function clearInps() {
     textInp.value = ''
     imgInp.value = ''
     dateInp.value = ''
+    categoryInp.value = ''
     sayInp.value = ''
 }
 
@@ -135,31 +140,43 @@ function validation() {
     textInp.style.borderColor = 'gray'
     imgInp.style.borderColor = 'gray'
     dateInp.style.borderColor = 'gray'
+    categoryInp.style.borderColor = 'gray'
     sayInp.style.borderColor = 'gray'
 
     if (titleInp.value.trim() == '') {
         titleInp.style.borderColor = 'red'
         titleInp.focus()
+        alert('Başlıq hissəsini doldurun!')
         return true
     }
     if (textInp.value.trim() == '') {
         textInp.style.borderColor = 'red'
         textInp.focus()
+        alert('Mətn hissəsini doldurun!')
+        return true
+    }
+    if (categoryInp.value.trim() == '') {
+        categoryInp.style.borderColor = 'red'
+        categoryInp.focus()
+        alert('Kateqoriya hissəsini doldurun!')
         return true
     }
     if (imgInp.value.trim() == '') {
         imgInp.style.borderColor = 'red'
         imgInp.focus()
+        alert('Şəkil hissəsini doldurun!')
         return true
     }
     if (dateInp.value.trim() == '') {
         dateInp.style.borderColor = 'red'
         dateInp.focus()
+        alert('Tarix hissəsini doldurun!')
         return true
     }
     if (sayInp.value.trim() == '') {
         sayInp.style.borderColor = 'red'
         sayInp.focus()
+        alert('Baxış hissəsini doldurun!')
         return true
     }
 }

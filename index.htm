@@ -11,10 +11,15 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="md:fixed top-0 bg-white right-0 left-0">
-        <div class="h-[32px] bg-[#051d39] max-md:hidden"></div>
-        <div class="md:hidden">
-            <div class="fixed top-0 left-0 right-0 bg-white flex p-[15px] justify-between">
+    <header class="md:fixed top-0 bg-white right-0 left-0 z-[99999]">
+        <div class="h-[32px] bg-[#051d39] px-14 laptop:px-[15px] max-md:hidden">
+            <div class="max-w-[1356px] m-auto flex gap-2 uppercase font-medium text-[12px] h-full justify-center items-center">
+                <i class="fa-solid fa-bolt text-white text-[16px]"></i>
+                <marquee class="text-white ">um, adipisci sit, sunt nulla asperiores qui atque esse hic omnis obcaecati, natus in maiores a blanditiis voluptas odio saepe consequuntur ut officiis! Aliquid, itaque ipsa. Eius?</marquee>
+            </div>
+        </div>
+        <div class="md:hidden fixed top-0 left-0 right-0 bg-white">
+            <div class=" bg-white flex p-[15px] justify-between">
                 <a href="./index.htm" class="grid place-items-center">
                     <img src="img/logo.svg" alt="logo" />
                 </a>
@@ -24,21 +29,29 @@
                     <i onclick="openCloseMenu()" class="fa-solid fa-bars cursor-pointer text-[20px]"></i>
                 </div>
             </div>
-            <div class="mt-14 text-[#051d39] h-[40px] px-[15px] overflow-x-scroll scrollbar-hide flex justify-between items-center gap-2 font-medium text-[14px]">
-                <a href="#" class="bg-[#f63147] anmt w-[82px!important] flex items-center gap-2 rounded-[30px] text-[12px] text-white p-[4px_12px] uppercase">
-                        <div class="flex gap-3 items-center w-[80px] font-bold">
-                            <img src="img/live.png" width="22" alt="live" />
-                            live
-                        </div>
-                </a>
-                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">İlham Əliyev</a>
-                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Böyük Qayıdış</a>
-                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Ermənilərin təxribatı</a>
-                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hava proqnozu</a>
-                <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Neokolonializmlə mübarizə</a>
+            <div id="scrollHide" class="overflow-hidden transition-all ease-out duration-300">
+                <div class=" text-[#051d39] h-[40px] px-[15px] overflow-x-scroll scrollbar-hide flex justify-between items-center gap-2 font-medium text-[14px]">
+                    <a href="#" class="bg-[#f63147] anmt w-[82px!important] flex items-center gap-2 rounded-[30px] text-[12px] text-white p-[4px_12px] uppercase">
+                            <div class="flex gap-3 items-center w-[80px] font-bold">
+                                <img src="img/live.png" width="22" alt="live" />
+                                live
+                            </div>
+                    </a>
+                    <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">İlham Əliyev</a>
+                    <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Böyük Qayıdış</a>
+                    <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Ermənilərin təxribatı</a>
+                    <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hərbi cinayətlərdə təqsirləndirilən erməniəsilli şəxslər</a>
+                    <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hava proqnozu</a>
+                    <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Neokolonializmlə mübarizə</a>
+                </div>
+                <div class="h-[32px] bg-[#051d39] md:hidden mt-3">
+                    <div class="max-w-[1356px] m-auto px-[15px] flex gap-2 uppercase font-medium text-[12px] h-full justify-center items-center">
+                        <i class="fa-solid fa-bolt text-white text-[16px]"></i>
+                        <marquee class="text-white ">um, adipisci sit, sunt nulla asperiores qui atque esse hic omnis obcaecati, natus in maiores a blanditiis voluptas odio saepe consequuntur ut officiis! Aliquid, itaque ipsa. Eius?</marquee>
+                    </div>
+                </div> 
             </div>
         </div>
-        <div class="h-[32px] bg-[#051d39] md:hidden"></div>
         <div id="hideMenuDiv" class="fixed overflow-y-auto md:hidden inset-0 bg-white p-[16px_15px_72px]">
             <div class="mt-[20px] flex justify-between items-center">
                 <a href="./index.htm"><img width="120" src="img/logo.svg" alt="logo" /></a>
@@ -115,53 +128,38 @@
                             <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">İlham Əliyev</a>
                             <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Böyük Qayıdış</a>
                             <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Ermənilərin təxribatı</a>
+                            <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hərbi cinayətlərdə təqsirləndirilən erməniəsilli şəxslər</a>
                             <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Hava proqnozu</a>
                             <a href="#" class="rounded-[30px] border text-nowrap border-[#d1d1d1] p-[3px_12px] transition duration-300 hover:border-[#999999]">Neokolonializmlə mübarizə</a>
                         </div>
                         <div class="text-[#464646] flex justify-between items-center gap-6">
                             <i class="fa-solid fa-magnifying-glass cursor-pointer text-[22px]"></i>
-                            <i onclick="" class="fa-solid fa-bars cursor-pointer text-[20px]"></i>
+                            <i onclick="showHideMenu()" id="changeI" class="fa-solid fa-bars transition duration-500 cursor-pointer text-[20px]"></i>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="deskMenuDiv max-md:hidden max-h-0 transition-all ease-linear duration-500 overflow-hidden bg-[#f8f8f8] w-full">
+            <div class="max-w-[1000px] m-auto p-[32px_15px]">
+                <div id="deskMenu" class="flex justify-between flex-wrap gap-y-[45px]"></div>
+                <div class="mt-10 font-medium flex justify-between items-center">
+                    <div>
+                        <p>Karyera</p>
+                        <a href="#"><u>cv@oxu.az</u></a>
+                    </div>
+                    <div class="text-right">
+                        <p>Ümumi sorğular üçün</p>
+                        <a href="#"><u>editor@oxu.az</u></a>,
+                        <a href="tel:994552247686"><u>0552247686</u></a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <h1 class="text-[50px] bg-yellow-400">s;adjas</h1>
-        <aside class="w-[56px] fixed top-8 bottom-0 hidden md:flex justify-between flex-col left-0 bg-[#fafaf9e0] p-[20px_10px_22px]">
+        <div onclick="showHideMenu()" class="deskMenuDiv fixed inset-0 z-[3] hidden transition-all duration-500 bg-[#0000006e] max-md:hidden"></div>
+        <aside class="w-[56px] fixed top-8 bottom-0 hidden md:flex justify-between flex-col left-0 bg-[#fafaf9e0] z-[999999] p-[20px_10px_22px]">
             <div>
                 <div class="w-[36px] h-[24px] bg-[#051d39] border-[2px] border-[#051d39] flex justify-center text-[12px] font-bold rounded-[44px] cursor-pointer items-center text-white">AZ</div>
                 <div class="w-[36px] h-[24px] border-[2px] border-[#051d39] flex justify-center text-[12px] font-bold rounded-[44px] items-center my-6 cursor-pointer text-[#464646]">RU</div>
@@ -197,10 +195,58 @@
                 </div>
             </div>
         </aside>
+        <div class="md:p-[98px_0_0_56px] laptop:pr-[56px] pt-[140px]">
+            <section class="py-6 sm:py-12 ">
+                <div class="max-w-[1000px] px-[15px] mx-auto space-y-8">
+                    <div id="contentNews" class="container mx-auto grid grid-cols-1 gap-x-4 gap-y-8 lsm:grid-cols-2 lg:grid-cols-3">
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer>
+    <footer class=" md:p-[40px_24px_40px_62px] px-6 py-10 bg-[#eff1f0] dark:text-gray-800">
+        <div class="container grid grid-cols-4 mx-auto gap-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
+           <a href="#">
+            <img class="max-w-[270px]" src="img/logo.svg" alt="footer-logo" />
+           </a>
 
+            <div class="flex flex-col space-y-4">
+                <h2 class="text-[17px]">Bütün hüquqlar qorunur &copy; 2013-2025</h2>
+               
+                <div class="flex flex-col space-y-2 text-[16px] ">
+                    <p class="max-w-[350px]">Oxu.Az 24 saat ərzində, Azərbaycan, türk və rus dillərində, ölkədə və dünyada baş verən ən aktual və maraqlı hadisələr barədə operativ xəbərlər, oxucuları və cəmiyyəti maraqlandıran suallara cavablar, analitik məqalələr, foto və videohesabatlar hazırlayır.</p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a href="#"><i class="fa-brands fa-facebook text-[22px] mb-5 text-[#5197e4]"></i> </a>
+                    <a href="#"><i class="fa-brands fa-telegram text-[22px] mb-5 text-[#0088cc]"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp text-[22px] mb-5 text-[#25d366]"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram text-[22px] mb-5 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text"></i></a>
+                    <a href="#"><i class="fa-brands fa-apple text-[22px] mb-5 text-[#9b9b9b]"></i></a>
+                    <a href="#"><img src="img/google_play.png" width="22" class="w-[18px]" alt="google_play"></a>
+               </div>
+            </div>
+
+            <div class="flex flex-col space-y-4">
+                    <div>
+                        <h3 class="text-[#191c1c] font-[500]">Karyera</h3>
+                        <a class="text-[#313131] underline" href="">cv@oxu.az</a>
+                    </div>
+                    <div>
+                        <h3 class="text-[#191c1c] font-[500]">Ümumi sorğular üçün</h3>
+                        <p class="text-[#313131] underline"><a href="">editor@oxu.az</a></p>
+                        <p class="text-[#313131] underline"><a href="">055 224 76 86</a></p>
+                    </div>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <div class="flex flex-col space-y-2 text-[17px]">
+                    <a class="underline" rel="noopener noreferrer" href="#">Saytda reklam</a>
+                    <a class="underline" rel="noopener noreferrer" href="#">Bizimlə əlaqə</a>
+                    <a class="underline" rel="noopener noreferrer" href="#">Məxfilik siyasəti</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="js/index.js"></script>
