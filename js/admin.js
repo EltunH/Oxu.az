@@ -28,6 +28,7 @@ function objNews() {
 }
 
 function addNews() {
+    borderGray()
     if (validation()) return
 
     fetch('https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz', {
@@ -100,6 +101,7 @@ function editNews(id) {
 }
 
 function editFetch(id) {
+    borderGray()
     if(validation()) return
     fetch(`https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz/${id}`, {
         method: "PUT",
@@ -126,6 +128,7 @@ function clearInps() {
 
 function openNewsDiv(arg) {
     newsDiv.classList.toggle('hidden')
+    borderGray()
     if (arg) {
         clearInps()
         btnChange.onclick = () => addNews()
@@ -136,13 +139,6 @@ function openNewsDiv(arg) {
 openNewsDiv()
 
 function validation() {
-    titleInp.style.borderColor = 'gray'
-    textInp.style.borderColor = 'gray'
-    imgInp.style.borderColor = 'gray'
-    dateInp.style.borderColor = 'gray'
-    categoryInp.style.borderColor = 'gray'
-    sayInp.style.borderColor = 'gray'
-
     if (titleInp.value.trim() == '') {
         titleInp.style.borderColor = 'red'
         titleInp.focus()
@@ -179,4 +175,13 @@ function validation() {
         alert('Baxış hissəsini doldurun!')
         return true
     }
+}
+
+function borderGray() {
+    titleInp.style.borderColor = 'gray'
+    textInp.style.borderColor = 'gray'
+    imgInp.style.borderColor = 'gray'
+    dateInp.style.borderColor = 'gray'
+    categoryInp.style.borderColor = 'gray'
+    sayInp.style.borderColor = 'gray'
 }
