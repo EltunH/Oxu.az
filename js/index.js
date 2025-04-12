@@ -5,6 +5,7 @@ const changeI = document.getElementById('changeI')
 const scrollHide = document.getElementById('scrollHide')
 const contentNews = document.getElementById('contentNews')
 const deskMenuDiv = document.querySelectorAll('.deskMenuDiv')
+const marq = document.querySelectorAll('.marq')
 
 function openCloseMenu() { hideMenuDiv.classList.toggle('hidden') }
 openCloseMenu()
@@ -90,7 +91,8 @@ function showNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </article>
-        `
+                            </article>`
+            marq[0].innerHTML += `<div class="ml-3 inline-block relative pl-2"> <div class="w-[3px] absolute top-[50%] left-0 translate-y-[-50%] h-[3px] rounded-[50%] bg-white"></div> ${item.title}</div>`
+            marq[1].innerHTML += `<div class="ml-3 inline-block relative pl-2"> <div class="w-[3px] absolute top-[50%] left-0 translate-y-[-50%] h-[3px] rounded-[50%] bg-white"></div> ${item.title}</div>`
     })
 }
