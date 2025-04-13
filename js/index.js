@@ -109,12 +109,12 @@ function showNews() {
                                 <div>
                                     <img alt="" class="object-cover w-full md:h-[419px] bg-gray-500" src="${myNews.img}">
                                 </div>
-                                <div class="flex flex-col flex-1 p-[18px_14px]">
-                                    <div class="my-6 text-[14px] text-[#051d39] flex justify-between items-center">
+                                <div class="flex flex-col flex-1">
+                                    <div class="my-6 text-[11px] md:text-[14px] text-[#051d39] flex justify-between items-center">
                                         <p class="uppercase font-medium">Ana səhifə / ${myNews.category}</p>
                                         <div class="tracking-[.96px] font-medium text-[#777]">
                                             <i class="fa-regular fa-calendar-plus"></i>
-                                            <span class="mr-[14px] uppercase">${myNews.date} / <span>14:20</span></span>
+                                            <span class="mr-[10px] md:mr-[14px] uppercase">${myNews.date} / <span>14:20</span></span>
                                             <i class="fa-solid fa-eye"></i>
                                             <span>${myNews.view}</span>
                                         </div>
