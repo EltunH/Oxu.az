@@ -39,7 +39,10 @@ function addNews() {
         }
     })
         .then(res => res.json)
-        .then(info => getNews())
+        .then(info => {
+            getNews()
+            openNewsDiv()
+        })
 }
 
 function getNews() {
@@ -58,30 +61,32 @@ getNews()
 
 function showTable() {
     let kod = ''
-    DATA.map((item, i) => {
+    DATA.slice().reverse().map((item, i) => {
         kod += `
                     <tr class=" h-[50px] bg-[#fafafc]">
                         <td class="border px-3 py-2"><img src="${item.img}" class="w-[50px] h-[50px] object-cover" alt="photo"/></td>
                         <td class="border px-3 py-2">${item.title}</td>
-                        <td class="border px-3 py-2">${item.description}</td>
+                        <td class="border px-3 py-2">${item.description.slice(0, 150)}...</td>
                         <td class="border px-3 py-2">${item.category}</td>
                         <td class="border px-3 py-2 text-nowrap">${item.date}</td>
                         <td class="border px-3 py-2">${item.view}</td>
                         <td class="border px-3 py-2">${item.is_popular ? 'Populyardir' : 'Sadədir'}</td>
                         <td onclick="editNews('${item.id}')" class="border px-3 py-2"><i class="fa-solid fa-edit text-green-600 cursor-pointer"></i></td>
-                        <td onclick="delNews('${item.id}', ${i})" class="border px-3 py-2"><i class="fa-solid fa-trash text-red-600 cursor-pointer"></i></td>
+                        <td onclick="delNews('${item.id}')" class="border px-3 py-2"><i class="fa-solid fa-trash text-red-600 cursor-pointer"></i></td>
                     <tr/>`
     })
     tbl.innerHTML = kod
 }
 
-function delNews(id, i) {
+function delNews(id) {
     fetch(`https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz/${id}`, {
         method: 'DELETE'
     })
         .then(res => res.json())
         .then(info => {
-            DATA.splice(i, 1)
+            const newArr = DATA.filter(item => item.id != id)
+            DATA.length = 0
+            DATA.push(...newArr)
             showTable()
         })
 }
@@ -102,7 +107,7 @@ function editNews(id) {
 
 function editFetch(id) {
     borderGray()
-    if(validation()) return
+    if (validation()) return
     fetch(`https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz/${id}`, {
         method: "PUT",
         body: JSON.stringify(objNews(),),
@@ -128,6 +133,7 @@ function clearInps() {
 
 function openNewsDiv(arg) {
     newsDiv.classList.toggle('hidden')
+    document.body.classList.toggle('overflow-hidden')
     borderGray()
     if (arg) {
         clearInps()
@@ -136,7 +142,6 @@ function openNewsDiv(arg) {
         changeText.innerHTML = 'Xəbər yerləşdir'
     }
 }
-openNewsDiv()
 
 function validation() {
     if (titleInp.value.trim() == '') {

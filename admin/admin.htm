@@ -9,72 +9,99 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../src/output.css">
-    <link rel="shortcut icon" href="admin.ico" type="image/x-icon"> 
+    <link rel="shortcut icon" href="admin.ico" type="image/x-icon">
 </head>
 
 <body>
-    <div class="max-w-[1200px] m-auto">
-        <div class="container m-auto py-6">
-            <button onclick="openNewsDiv(true)"
-                class="w-[190px] block m-auto text-white cursor-pointer bg-[#20b94c] rounded-[7px] py-2">Xəbər
-                yerləşdir</button>
-            <h1 class="text-[32px] text-center font-bold my-10 ">Xəbərlər</h1>
-            <table class="w-full">
-                <thead class="font-bold h-[50px] bg-[#d2d6db]">
-                    <tr>
-                        <td class="border px-3 py-2">Şəkil</td>
-                        <td class="border px-3 py-2">Başlıq</td>
-                        <td class="border px-3 py-2">Mətn</td>
-                        <td class="border px-3 py-2">Kateqoriya</td>
-                        <td class="border px-3 py-2">Tarix</td>
-                        <td class="border px-3 py-2">Baxış sayı</td>
-                        <td class="border px-3 py-2">Məşhurluğu</td>
-                        <td class="border px-3 py-2">Düzəlt</td>
-                        <td class="border px-3 py-2">Sil</td>
-                    </tr>
-                </thead>
-                <tbody id="tbl">
-
-                </tbody>
-            </table>
-            <div id="newsDiv" onclick="openNewsDiv()" class="fixed grid backdrop-blur-sm inset-0 place-items-center">
-                <div onclick="event.stopPropagation()"
-                    class="border-[2px] border-[#1e6f37] bg-[#d2d6db] w-[600px] rounded px-2 py-3">
-                    <p id="changeText" class="text-[#1e6f37] text-[24px] font-bold mb-3 text-center">Xəbər yerləşdir</p>
-                    <label for="titleInp" class="text-[#1e6f37] font-bold">Başlıq əlavə et:</label>
-                    <input id="titleInp" class="w-full p-1 outline-none mb-2 border border-gray-500 rounded"
-                        type="text" />
-
-                    <label for="textInp" class="text-[#1e6f37] font-bold">Mətn əlavə et:</label>
-                    <textarea id="textInp" class="w-full p-1 outline-none mb-2 border border-gray-500 rounded h-[150px]"
-                        type="text"></textarea>
-
-                    <label for="categoryInp" class="text-[#1e6f37] font-bold">Kategoriya əlavə et:</label>
-                    <input id="categoryInp" class="w-full p-1 outline-none mb-2 border border-gray-500 rounded"
-                        type="text" />
-
-                    <label for="imgInp" class="text-[#1e6f37] font-bold">Şəkil əlavə et:</label>
-                    <input id="imgInp" class="w-full p-1 outline-none mb-2 border border-gray-500 rounded"
-                        type="text" />
-
-                    <label for="dateInp" class="text-[#1e6f37] font-bold">Tarix əlavə et:</label>
-                    <input id="dateInp" class="w-full p-1 outline-none mb-2 border border-gray-500 rounded"
-                        type="date" />
-
-                    <label for="sayInp" class="text-[#1e6f37] font-bold">Baxış sayı:</label>
-                    <input id="sayInp" class="w-full p-1 outline-none mb-2 border border-gray-500 rounded"
-                        type="number" />
-
-                    <label for="popInp" class="text-[#1e6f37] font-bold">Populyarlığı:</label>
-                    <input id="popInp" class="border border-gray-500 rounded" type="checkbox" />
-                    <button id="btnChange" onclick="addNews()"
-                        class="w-[190px] block m-auto mt-4 text-white cursor-pointer bg-[#20b94c] rounded-[7px] py-2">Yüklə</button>
+    <header>
+        <div class="max-w-[1200px] p-4 bg-[#d2d6db] mx-auto flex justify-between items-center">
+            <a href="/index.htm">
+                <img src="../img/logo.svg" alt="logo">
+            </a>
+            <button onclick="logOut()" class="flex items-center gap-2 px-4 py-2 bg-[#1894a0] hover:bg-red-600 text-white font-medium rounded-lg transition duration-200">
+                <i class="fa-solid fa-right-from-bracket text-white text-lg"></i>
+                Çıxış
+            </button>
+        </div>
+    </header>
+    <main>
+        <div class="max-w-[1200px] m-auto">
+            <div class="container m-auto py-6">
+                <button onclick="openNewsDiv(true)"
+                    class="w-[190px] block m-auto text-white cursor-pointer bg-[#20b94c] rounded-[7px] py-2">Xəbər
+                    yerləşdir</button>
+                <h1 class="text-[32px] text-center font-bold my-10 ">Xəbərlər</h1>
+                <table class="w-full">
+                    <thead class="font-bold h-[50px] bg-[#d2d6db]">
+                        <tr>
+                            <td class="border px-3 py-2">Şəkil</td>
+                            <td class="border px-3 py-2">Başlıq</td>
+                            <td class="border px-3 py-2">Mətn</td>
+                            <td class="border px-3 py-2">Kateqoriya</td>
+                            <td class="border px-3 py-2">Tarix</td>
+                            <td class="border px-3 py-2">Baxış sayı</td>
+                            <td class="border px-3 py-2">Məşhurluğu</td>
+                            <td class="border px-3 py-2">Düzəlt</td>
+                            <td class="border px-3 py-2">Sil</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl">
+    
+                    </tbody>
+                </table>
+                <div id="newsDiv" onclick="openNewsDiv()" class="fixed hidden py-[20px] overflow-y-auto grid backdrop-blur-sm inset-0 place-items-center">
+                    <div onclick="event.stopPropagation()"
+                        class="border-[2px] border-[#1e6f37] bg-[#d2d6db] w-[600px] rounded px-2 py-3">
+                        <p id="changeText" class="text-[#1e6f37] text-[24px] font-bold mb-3 text-center">Xəbər yerləşdir</p>
+                        <label for="titleInp" class="text-[#1e6f37] font-bold">Başlıq əlavə et:</label>
+                        <input id="titleInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                            type="text" />
+    
+                        <label for="textInp" class="text-[#1e6f37] font-bold">Mətn əlavə et:</label>
+                        <textarea id="textInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded h-[200px]"
+                            type="text"></textarea>
+    
+                        <label for="categoryInp" class="text-[#1e6f37] font-bold">Kategoriya əlavə et:</label>
+                        <input id="categoryInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                            type="text" />
+    
+                        <label for="imgInp" class="text-[#1e6f37] font-bold">Şəkil əlavə et:</label>
+                        <input id="imgInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                            type="text" />
+    
+                        <label for="dateInp" class="text-[#1e6f37] font-bold">Tarix əlavə et:</label>
+                        <input id="dateInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                            type="date" />
+    
+                        <label for="sayInp" class="text-[#1e6f37] font-bold">Baxış sayı:</label>
+                        <input id="sayInp" class="w-full p-1 outline-none my-2 border border-gray-500 rounded"
+                            type="number" />
+    
+                        <label for="popInp" class="text-[#1e6f37] font-bold">Populyarlığı:</label>
+                        <input id="popInp" class="border border-gray-500 rounded" type="checkbox" />
+                        <button id="btnChange" onclick="addNews()"
+                            class="w-[190px] block m-auto mt-4 text-white cursor-pointer bg-[#20b94c] rounded-[7px] py-2">Yüklə</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <!-- <script src="https://cdn.tiny.cloud/1/zksmw6nyunpo4c5jwv4ssp25mm7jril6j207umy80hlkhi9n/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: [
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+            ]
+        });
+    </script> -->
 
     <script src="../js/verify.js"></script>
+    <script src="../js/logout.js"></script>
     <script src="../js/admin.js"></script>
 </body>
 
