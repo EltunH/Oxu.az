@@ -12,7 +12,6 @@ const param = new URLSearchParams(location.search)
 let myId = param.get('id')
 
 function openCloseMenu() { hideMenuDiv.classList.toggle('hidden') }
-openCloseMenu()
 
 const sideMenuArr = ['Ana səhifə', 'Siyasət', 'İqtisadiyyat', 'Cəmiyyət', 'Ordu', 'Şou-biznes', 'Kriminal', 'idman', 'Mədəniyyət', 'Dünya', 'Hadisə', 'Müsahibə', 'Turizm', 'İKT', 'Baku TV', 'CineMastercard', 'Digər', 'Maraqlı']
 
@@ -40,7 +39,6 @@ function showHideMenu() {
     if (flag) deskMenuDiv[1].classList.remove('hidden')
     else setTimeout(() => deskMenuDiv[1].classList.add('hidden'), 500)
     flag = !flag
-    openCloseMenu()
 }
 
 let lastScrollTop = 0
@@ -66,13 +64,13 @@ function showFetch() {
 showFetch()
 
 function showNews() {
-    NEWS.map(item => {
+    NEWS.slice().reverse().map(item => {
         marq[0].innerHTML += `<div class="ml-3 inline-block relative pl-2"> <div class="w-[3px] absolute top-[50%] left-0 translate-y-[-50%] h-[3px] rounded-[50%] bg-white"></div> ${item.title}</div>`
             marq[1].innerHTML += `<div class="ml-3 inline-block relative pl-2"> <div class="w-[3px] absolute top-[50%] left-0 translate-y-[-50%] h-[3px] rounded-[50%] bg-white"></div> ${item.title}</div>`
     })
     if (!myId) {
         contentNews.innerHTML = ''
-        NEWS.map(item => {
+        NEWS.slice().reverse().map(item => {
             contentNews.innerHTML += `
                                 <a target="_blank" href="/pages/news.htm?id=${item.id}">
                                     <article class="flex flex-col h-full bg-[#fafaf9] rounded-[6px] overflow-hidden border">
