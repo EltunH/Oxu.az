@@ -2,17 +2,11 @@ const email = document.getElementById('email')
 const password = document.getElementById('password')
 
 function login() {
-    fetch('https://neptunbk.vercel.app/auth/login', {
-        method: 'POST',
-        body: JSON.stringify({
-            login: email.value,
-            password: password.value
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-        }
-    })
-        .then(res => res.json())
+    const item = {
+        login: email.value,
+        password: password.value
+    }
+    useLogin(item)
         .then(data => {
             if(data.status){
                 localStorage.setItem('token', data.token)

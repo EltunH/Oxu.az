@@ -31,14 +31,7 @@ function addNews() {
     borderGray()
     if (validation()) return
 
-    fetch('https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz', {
-        method: "POST",
-        body: JSON.stringify(objNews(),),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-        }
-    })
-        .then(res => res.json)
+    usePostNews(objNews())
         .then(info => {
             getNews()
             openNewsDiv()
@@ -48,8 +41,7 @@ function addNews() {
 function getNews() {
     clearInps()
 
-    fetch('https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz')
-        .then(res => res.json())
+    useGetNews()
         .then(info => {
             DATA.length = 0
             DATA.push(...info)
@@ -79,10 +71,7 @@ function showTable() {
 }
 
 function delNews(id) {
-    fetch(`https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz/${id}`, {
-        method: 'DELETE'
-    })
-        .then(res => res.json())
+    useDelNews(id)
         .then(info => {
             const newArr = DATA.filter(item => item.id != id)
             DATA.length = 0
@@ -108,27 +97,11 @@ function editNews(id) {
 function editFetch(id) {
     borderGray()
     if (validation()) return
-    fetch(`https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(objNews(),),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-        }
-    })
-        .then(res => res.json)
+    usePutNews(id, objNews())
         .then(info => {
             getNews()
             openNewsDiv()
         })
-}
-
-function clearInps() {
-    titleInp.value = ''
-    textInp.value = ''
-    imgInp.value = ''
-    dateInp.value = ''
-    categoryInp.value = ''
-    sayInp.value = ''
 }
 
 function openNewsDiv(arg) {
@@ -141,6 +114,15 @@ function openNewsDiv(arg) {
         btnChange.innerHTML = 'Yüklə'
         changeText.innerHTML = 'Xəbər yerləşdir'
     }
+}
+
+function clearInps() {
+    titleInp.value = ''
+    textInp.value = ''
+    imgInp.value = ''
+    dateInp.value = ''
+    categoryInp.value = ''
+    sayInp.value = ''
 }
 
 function validation() {

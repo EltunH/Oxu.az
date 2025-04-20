@@ -52,8 +52,7 @@ window.addEventListener('scroll', function () {
 const NEWS = []
 
 function showFetch() {
-    fetch('https://67ee9259c11d5ff4bf7a1d3f.mockapi.io/oxuaz')
-        .then(res => res.json())
+    useGetNews()
         .then(info => {
             NEWS.length = 0
             NEWS.push(...info)

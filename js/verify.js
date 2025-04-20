@@ -3,10 +3,7 @@ function checkVerify() {
     const isSatus = localStorage.getItem('status')
 
     if (isSatus && token) {
-        fetch('https://neptunbk.vercel.app/auth/verify-token',{
-            headers:  {'Authorization': `Bearer ${token}`}
-        })
-            .then(res => res.json())
+        useVerify(token)
             .then(data => {
                 if(!data.status) window.location.href = '/auth/login.htm' 
             })
